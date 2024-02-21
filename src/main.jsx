@@ -16,6 +16,7 @@ import AuthProvider from './Providers/AuthProvider';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import MyCart from './Pages/MyCart/MyCart';
 import PrivateRoute from './Route/PrivateRoute/PrivateRoute';
+import Details from './Pages/Details/Details';
 
 
 const router = createBrowserRouter([
@@ -31,18 +32,14 @@ const router = createBrowserRouter([
 
 
       },
+       
+      {
+        path: "/details/:id",
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/clothes/${params.id}`)
+      },
 
-      // {
-      //   path:"/events/:id",
-      //   element:<PrivateRoute><EventDetails></EventDetails></PrivateRoute>,
-      //   loader:()=>fetch('/data.json')
-      // },
      
-      // {
-      //   path:"/decoration",
-      //   element: <PrivateRoute><ThemeDecoration></ThemeDecoration></PrivateRoute>
-      // },
-
       {
         path:"/login",
         element:<Login></Login>
