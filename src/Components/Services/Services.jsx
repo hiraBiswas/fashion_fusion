@@ -10,7 +10,7 @@ import { BiSolidCustomize } from "react-icons/bi";
 const Services = () => {
     return (
         <div>
-        <h1 className='text-2xl mt-10 text-center font-semibold lg:text-3xl lg:mt-20 text-black'>Our Services </h1>
+        <h1 className='text-2xl mt-10 text-center font-bold lg:text-4xl lg:mt-20 text-black'>Our Services </h1>
         <div className="bg-cyan-400 mt-5 container rounded-lg flex flex-col lg:mx-w-full lg:mx-auto   gap-6 lg:flex-row lg:justify-center items-center">
        
             <div className="p-5 text-center flex-1">
