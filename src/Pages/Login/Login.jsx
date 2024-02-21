@@ -65,11 +65,11 @@ const Login = () => {
       <h2>Or</h2>
       <div onClick={signInWithGoogle} className="flex items-center gap-6 justify-center">
     
-      <Link className="text-cyan-500 font-bold text-xl">Login with Google</Link>
+      <Link className="text-cyan-700 font-bold text-xl">Login with Google</Link>
       </div>
       </div>
       <div>
-        <p className="p-8 pt-0 text-xl font-medium">New to the website? <NavLink to="/register" className="text-2xl font-semibold text-cyan-500">Register</NavLink> here.</p>
+        <p className="p-8 pt-0 text-xl font-medium">New to the website? <NavLink to="/register" className="text-2xl font-semibold text-cyan-700">Register</NavLink> here.</p>
       </div>
     </div>
     </div>

@@ -16,8 +16,8 @@ const Navbar = () => {
     }
     const navOptions = <>
     <li><Link to="/">Home</Link></li>
-    <li><Link to="/menu">Add Product</Link></li>
-    <li><Link to="/order/salad">My Cart</Link></li>
+    <li><Link to="/addProduct">Add Product</Link></li>
+    <li><Link to="/myCart">My Cart</Link></li>
     </>
     return (
         <>
