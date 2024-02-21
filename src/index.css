@@ -19,7 +19,27 @@
     display: block;
   }
 
+  .btn-card{
+    border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-image: linear-gradient(to right, #083344 0%, #79CBCA  51%, #77A1D3  100%);
+  transition: 0.5s;
+    background-size: 200% auto;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  }
+
   .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .btn-card:hover {
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;

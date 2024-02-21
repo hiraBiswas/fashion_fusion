@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
 
 const LastestProduct = () => {
@@ -20,15 +21,16 @@ const LastestProduct = () => {
 
   return (
     <div>
-      <div className="py-2 lg:py-10 px-10 shadow-drop rounded-xl my-2 lg:my-5">
+        <h2 className='text-4xl font-bold text-center mt-16'>Featured Products</h2>
+      <div className="container mx-auto py-2  shadow-drop gap-10  grid grid-cols-4 rounded-xl my-2 lg:my-5">
         {displayedProducts.map((product) => (
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}
       </div>
       {!showAll && (
-        <button className="btn btn-primary" onClick={() => setShowAll(true)}>
+        <Link to="/all-products" className="btn btn-primary">
           Show All
-        </button>
+        </Link>
       )}
     </div>
   );
