@@ -15,6 +15,7 @@ import Register from './Pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
 import AddProduct from './Pages/AddProduct/AddProduct';
 import MyCart from './Pages/MyCart/MyCart';
+import PrivateRoute from './Route/PrivateRoute/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home></Home>,
-        // loader:()=>fetch('/data.json')
+        loader: () => fetch('http://localhost:5000/clothes')
+
 
       },
 
@@ -48,7 +50,7 @@ const router = createBrowserRouter([
 
       {
         path:"/addProduct",
-        element:<AddProduct></AddProduct>
+        element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
 
       {
