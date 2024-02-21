@@ -13,6 +13,8 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
+import AddProduct from './Pages/AddProduct/AddProduct';
+import MyCart from './Pages/MyCart/MyCart';
 
 
 const router = createBrowserRouter([
@@ -44,6 +46,15 @@ const router = createBrowserRouter([
         element:<Login></Login>
       },
 
+      {
+        path:"/addProduct",
+        element:<AddProduct></AddProduct>
+      },
+
+      {
+        path:"/myCart",
+        element:<MyCart></MyCart>
+      },
       
       // {
       //   path:"/gallery",
