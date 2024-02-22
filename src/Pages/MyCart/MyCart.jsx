@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const MyCart = () => {
     const { user } = useContext(AuthContext);
     const [cartData, setCartData] = useState([]);
-
+   
     useEffect(() => {
         fetch('http://localhost:5000/cart')
             .then(response => {
@@ -23,6 +23,7 @@ const MyCart = () => {
                 console.error('Error fetching cart data:', error);
             });
     }, [user.email]);
+    console.log(cartData)
 
     const handleDeleteItem = (itemId) => {
         fetch(`http://localhost:5000/cart/${itemId}`, {
@@ -43,9 +44,10 @@ const MyCart = () => {
     };
 
     return (
-        <div className='container mx-auto'>
-            <h1 className='font-bold text-center py-5 text-white lg:text-2xl'>My Order</h1>
-            <div className="overflow-x-auto">
+        <div className='container mx-auto min-h-[600px]'>
+            <h1 className='font-bold text-center py-5  text-white lg:text-2xl'></h1>
+            <div className="overflow-x-auto mt-24">
+           
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -65,12 +67,12 @@ const MyCart = () => {
                          
                             <tr key={item._id}>
                                  <td>{index + 1}</td>
-                                <td><img className='h-16 w-16 lg:h-24 lg:w-24' src={item.image} alt={item.name} /></td>
-                                <td>{item.name}</td>
-                                <td>{item.price}</td>
-                                <td>{item.brandName}</td>
-                                <td>{item.type}</td>
-                                <td><button onClick={() => handleDeleteItem(item._id)} className='btn bg-red-500 text-xl text-white'>X</button></td>
+                                <td><img className='h-16 w-16 lg:h-24 lg:w-24' src={item.productDetails.image} alt={item.name} /></td>
+                                <td>{item.productDetails.name}</td>
+                                <td>{item.productDetails.price}</td>
+                                <td>{item.productDetails.brandName}</td>
+                                <td>{item.productDetails.type}</td>
+                                <td><button onClick={() => handleDeleteItem(item._id)} className='btn bg-cyan-400 text-xl text-white'>X</button></td>
                             </tr>
                         ))}
                     </tbody>
