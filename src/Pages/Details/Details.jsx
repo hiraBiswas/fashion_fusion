@@ -11,7 +11,7 @@ const Details = () => {
     const { user, signIn, loading } = useContext(AuthContext);
     const productDetails = useLoaderData();
     console.log(productDetails)
-    const {name, rating, price, brandName, description, image, type}=productDetails
+    const {name, rating, price, brandName, description, image, type, _id}=productDetails
     
     
     const addToCart = () => {

@@ -27,11 +27,13 @@ const LastestProduct = () => {
           <ProductCard key={product._id} product={product}></ProductCard>
         ))}
       </div>
-      {!showAll && (
-        <Link to="/all-products" className="btn btn-primary">
+    <div className='flex justify-center'>
+    {!showAll && (
+        <Link to="/allProducts" className="btn">
           Show All
         </Link>
       )}
+    </div>
     </div>
   );
 };

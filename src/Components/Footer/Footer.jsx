@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className="footer mt-16 p-10 bg-base-200 text-base-content">
   <aside>
-  <img src="./logo.png" className='h-24 w-24' alt="" />
+  <img src="https://i.ibb.co/k8sLM9v/logo.png" className='h-24 w-24' alt="" />
     <p>FashionFusion Ltd.<br/>Making tradition the trend since 2017</p>
   </aside> 
   <nav>

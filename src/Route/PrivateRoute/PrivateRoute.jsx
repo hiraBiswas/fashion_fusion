@@ -9,9 +9,9 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
     console.log(location.pathname)
    
-    // if(loading){
-    //     return <span className="loading loading-infinity loading-lg"></span>
-    // }
+    if(loading){
+        return <span className="loading loading-bars loading-lg"></span>
+    }
     
     if(user){
         return children
