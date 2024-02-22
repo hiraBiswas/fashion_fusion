@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/clothes')
+        loader: () => fetch('https://fashion-fusion-server.vercel.app/clothes')
 
 
       },
@@ -38,13 +38,13 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/clothes/${params.id}`)
+        loader: ({ params }) => fetch(`https://fashion-fusion-server.vercel.app/clothes/${params.id}`)
       },
 
       {
         path: "/update/:id",
         element: <UpdateProduct></UpdateProduct>,
-        loader: ({ params }) => fetch(`http://localhost:5000/clothes/${params.id}`)
+        loader: ({ params }) => fetch(`https://fashion-fusion-server.vercel.app/clothes/${params.id}`)
       } ,
      
       {
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       {
         path:"/myCart",
         element:<MyCart></MyCart>,
-        loader: () => fetch('http://localhost:5000/cart')
+        loader: () => fetch('https://fashion-fusion-server.vercel.app/cart')
       },
 
       

@@ -53,7 +53,7 @@ const AddProduct = () => {
         const newProduct = { name,  image: imageUrl, price, brandName, type, description, rating };
         console.log(newProduct);
   
-        fetch('http://localhost:5000/clothes', {
+        fetch('https://fashion-fusion-server.vercel.app/clothes', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

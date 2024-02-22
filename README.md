@@ -1,8 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project Feature: User Authentication: User login, logout is implemented.It gives some power to access some route. Providing Information:Added data is displayed on page.User can see them with or without login. Adding product: User can add product .For this, user must be logged in. View details and order: user can also see details and cart. Deleting from cart: User also has the power to delete from order. 

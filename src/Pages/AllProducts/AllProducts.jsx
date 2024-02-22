@@ -6,7 +6,7 @@ const AllProducts = () => {
  
 
  useEffect(() => {
-    fetch('http://localhost:5000/clothes')
+    fetch('https://fashion-fusion-server.vercel.app/clothes')
       .then(response => response.json())
       .then(data => {
         console.log(data);
