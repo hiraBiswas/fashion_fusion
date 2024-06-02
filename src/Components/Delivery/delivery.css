@@ -1,0 +1,26 @@
+.delivery-container {
+    height: 100vh; /* Adjust height as needed */
+    overflow-x: hidden;
+    position: relative;
+}
+
+.parallax {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.parallax img {
+    width: 100%;
+    height: auto;
+}
+
+.parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease; /* Smooth transition for text movement */
+}

@@ -88,7 +88,7 @@ const UpdateProduct = () => {
     <div className=" w-full rounded-2xl drop-shadow">
    
       <form onSubmit={handleUpdateProduct} className="w-full px-10">
-      <h1 className="mx-auto p-10 text-amber-600 font-semibold text-2xl lg:text-4xl text-center">Update Product</h1>
+      <h1 className="mx-auto p-10 text-cyan-400 font-semibold text-2xl lg:text-4xl text-center">Update Product</h1>
                     <div className="flex flex-col gap-6 w-full lg:flex-row">
                         <div className="form-control flex-1">
                             <label className="label">
@@ -151,7 +151,7 @@ const UpdateProduct = () => {
 
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-amber-600 drop-shadow">Update</button>
+                        <button className="btn bg-cyan-400 drop-shadow">Update</button>
                     </div>
                 
       </form>
