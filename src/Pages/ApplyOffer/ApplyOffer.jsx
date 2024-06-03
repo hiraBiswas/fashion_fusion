@@ -1,9 +1,7 @@
-import React from 'react';import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 
 const ApplyOffer = () => {
     const [products, setProducts] = useState([]);
@@ -17,7 +15,7 @@ const ApplyOffer = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/clothes');
+                const response = await axios.get('http://localhost:5000/products');
                 setProducts(response.data);
                 setLoadingProducts(false);
             } catch (error) {
@@ -29,7 +27,7 @@ const ApplyOffer = () => {
 
         const fetchDiscounts = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/discount');
+                const response = await axios.get('http://localhost:5000/offers');
                 setDiscounts(response.data);
                 setLoadingDiscounts(false);
             } catch (error) {
@@ -48,10 +46,10 @@ const ApplyOffer = () => {
             toast.error('Please select both a product and a discount offer.');
             return;
         }
-    
+
         try {
             console.log(`Updating product ${selectedProduct} with discount ${selectedDiscount}`);
-            const response = await axios.patch(`http://localhost:5000/clothes/${selectedProduct}`, {
+            const response = await axios.patch(`http://localhost:5000/products/${selectedProduct}`, {
                 discount: selectedDiscount
             });
             if (response.status === 200) {
@@ -64,7 +62,6 @@ const ApplyOffer = () => {
             toast.error('Failed to update discount.');
         }
     };
-    
 
     return (
         <div className='container mx-auto w-[600px] shadow-2xl mt-12'>
@@ -95,8 +92,8 @@ const ApplyOffer = () => {
                 >
                     <option value="" disabled>{loadingDiscounts ? 'Loading discounts...' : 'Select a discount offer'}</option>
                     {discounts.map((discount) => (
-                        <option key={discount._id} value={discount.offer}>
-                            {discount.offer}
+                        <option key={discount._id} value={discount.code}>
+                            {discount.code}
                         </option>
                     ))}
                 </select>
@@ -108,4 +105,5 @@ const ApplyOffer = () => {
         </div>
     );
 };
+
 export default ApplyOffer;

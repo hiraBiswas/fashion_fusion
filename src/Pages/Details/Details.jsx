@@ -22,7 +22,7 @@ const Details = () => {
                 productDetails: productDetails, 
             };
     
-            fetch('https://fashion-fusion-server.vercel.app/cart', {
+            fetch('http://localhost:5000/cart', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

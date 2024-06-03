@@ -18,7 +18,8 @@ const Navbar = () => {
     const navOptions = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/addProduct">Add Product</Link></li>
-    <li><Link to="/addDiscount">Add Discount</Link></li>
+    <li><Link to="/addOffer">Add Offer</Link></li>
+    <li><Link to="/applyOffer">Apply Offer</Link></li>
     <li><Link to="/myCart">My Cart</Link></li>
     
     </>

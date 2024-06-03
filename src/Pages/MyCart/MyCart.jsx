@@ -9,7 +9,7 @@ const MyCart = () => {
     const [cartData, setCartData] = useState([]);
 
     useEffect(() => {
-        fetch('https://fashion-fusion-server.vercel.app/cart')
+        fetch('http://localhost:5000/cart')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch cart data');
@@ -31,7 +31,7 @@ const MyCart = () => {
     }, [user.email]);
 
     const handleDeleteItem = (itemId) => {
-        fetch(`https://fashion-fusion-server.vercel.app/cart/${itemId}`, {
+        fetch(`http://localhost:5000/cart/${itemId}`, {
             method: 'DELETE',
         })
             .then(response => {
