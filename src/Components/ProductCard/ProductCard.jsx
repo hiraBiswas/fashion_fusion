@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '../Rating/Rating';
+import axios from 'axios';
 
 const ProductCard = ({ product }) => {
-    const { _id, name,  price, rating, image, category,offer } = product;
-    console.log(product.image);
+    const { _id, name, price, rating, image, category, offer } = product;
+    const [offerTitle, setOfferTitle] = useState('');
+
+    useEffect(() => {
+        const fetchOfferTitle = async () => {
+            if (offer && offer !== '') {
+                try {
+                    const response = await axios.get('http://localhost:5000/offers');
+                    const offers = response.data;
+                    const matchedOffer = offers.find((offerItem) => offerItem.code === offer);
+                    if (matchedOffer) {
+                        setOfferTitle(matchedOffer.title);
+                    } else {
+                        console.log('No matching offer found for the product');
+                    }
+                } catch (error) {
+                    console.error('Error fetching offers:', error);
+                }
+            }
+        };
+        fetchOfferTitle();
+    }, [offer]);
+
     return (
         <div className="relative">
             <div className="card card-compact">
                 <figure className="relative">
                     <img className="h-80 w-full p-2 rounded-xl" src={image} alt={name} />
-                    {offer && offer !== '' && (
+                    {offerTitle && (
                         <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                            {offer}
+                            {offerTitle}
                         </span>
                     )}
                 </figure>
