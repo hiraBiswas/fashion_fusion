@@ -19,6 +19,7 @@ import PrivateRoute from './Route/PrivateRoute/PrivateRoute';
 import Details from './Pages/Details/Details';
 import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 import AllProducts from './Pages/AllProducts/AllProducts';
+import AddDiscount from './Pages/AddDiscount/AddDiscount';
 
 
 const router = createBrowserRouter([
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
         path:"/myCart",
         element:<MyCart></MyCart>,
         loader: () => fetch('https://fashion-fusion-server.vercel.app/cart')
+      },
+
+      {
+        path:"/addDiscount",
+        element:<AddDiscount></AddDiscount>,
+       
       },
 
       

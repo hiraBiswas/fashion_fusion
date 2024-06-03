@@ -1,6 +1,7 @@
 import React, { useContext, useEffect ,useState} from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import './navbar.css'
 
 const Navbar = () => {
     const {user, logOut}= useContext(AuthContext)
@@ -17,7 +18,9 @@ const Navbar = () => {
     const navOptions = <>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/addProduct">Add Product</Link></li>
+    <li><Link to="/addDiscount">Add Discount</Link></li>
     <li><Link to="/myCart">My Cart</Link></li>
+    
     </>
 
 const [theme, setTheme] = useState(
@@ -40,7 +43,7 @@ useEffect(() => {
 
     return (
         <>
-        <div className="navbar fixed z-10 bg-opacity-30  bg-blue-950 text-white">
+        <div className="navbar bg-cyan-800 text-white">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

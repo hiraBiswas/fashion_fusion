@@ -1,15 +1,8 @@
-.cart-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
 
 .cart-title {
     text-align: center;
-    font-size: 24px;
+    
     margin-bottom: 20px;
 }
 
@@ -48,6 +41,28 @@
 .item-brand, .item-type {
     color: #888;
     font-size: 14px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.quantity-btn:hover {
+    background: #2980b9;
+}
+
+.quantity {
+    margin: 0 10px;
 }
 
 .item-actions {
