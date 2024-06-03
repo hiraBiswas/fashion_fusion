@@ -9,14 +9,16 @@ const AddOffer = () => {
     const handleAddOffer = async () => {
         try {
             const response = await axios.post('http://localhost:5000/offers', { code });
-            if (response.data.upsertedCount === 1 || response.data.matchedCount === 1) {
-                toast.success('Offer added/updated successfully!');
-            } else {
-                toast.error('Failed to add/update offer.');
+            if (response.status === 200) {
+                toast.success('Offer added successfully!');
             }
         } catch (error) {
-            console.error('Error adding offer:', error);
-            toast.error('Invalid offer code.');
+            if (error.response && error.response.status === 409) {
+                toast.error('Offer code already exists.');
+            } else {
+                console.error('Error adding offer:', error);
+                toast.error('Failed to add offer.');
+            }
         }
     };
 

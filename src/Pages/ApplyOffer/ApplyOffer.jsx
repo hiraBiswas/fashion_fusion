@@ -1,3 +1,5 @@
+// ApplyOffer.js
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -46,23 +48,34 @@ const ApplyOffer = () => {
             toast.error('Please select both a product and a discount offer.');
             return;
         }
-
+    
         try {
-            console.log(`Updating product ${selectedProduct} with discount ${selectedDiscount}`);
-            const response = await axios.patch(`http://localhost:5000/products/${selectedProduct}`, {
-                discount: selectedDiscount
-            });
-            if (response.status === 200) {
-                toast.success('Discount updated successfully!');
+            // Check if the selected product already has an offer
+            const product = products.find((product) => product._id === selectedProduct);
+            if (product) {
+                // Prepare the updated product object with the new offer
+                const updatedProduct = { ...product, offer: selectedDiscount };
+    
+                // Send PATCH request to update the product with the new offer
+                console.log(`Updating product ${selectedProduct} with discount ${selectedDiscount}`);
+                const response = await axios.patch(`http://localhost:5000/products/${selectedProduct}`, updatedProduct);
+                
+                // Check the response status to determine if the update was successful
+                if (response.status === 200) {
+                    toast.success('Discount applied successfully!');
+                } else {
+                    toast.error('Failed to apply discount.');
+                }
             } else {
-                toast.error('Failed to update discount.');
+                // If the product is not found, show an error toast
+                toast.error('Selected product not found.');
             }
         } catch (error) {
             console.error('Error updating discount:', error);
-            toast.error('Failed to update discount.');
+            toast.error('Failed to apply discount.');
         }
     };
-
+    
     return (
         <div className='container mx-auto w-[600px] shadow-2xl mt-12'>
             {error && <p className="text-red-500">{error}</p>}
@@ -83,7 +96,7 @@ const ApplyOffer = () => {
                 </select>
             </div>
             <div className='flex gap-4 pl-20 pr-20 pt-8 items-center'>
-                <h2 className='text-md font-medium'>Discount Offer :</h2>
+                <h2 className='text-md font-medium'>Offer Code :</h2>
                 <select
                     className="select select-bordered w-full max-w-xs"
                     value={selectedDiscount}
@@ -99,7 +112,7 @@ const ApplyOffer = () => {
                 </select>
             </div>
             <div className='flex justify-center p-8'>
-                <button className='btn btn-primary' onClick={handleUpdateDiscount} disabled={loadingProducts || loadingDiscounts}>Apply Discount</button>
+                <button className='btn bg-cyan-700 text-white px-8' onClick={handleUpdateDiscount} disabled={loadingProducts || loadingDiscounts}>Apply</button>
             </div>
             <ToastContainer />
         </div>
